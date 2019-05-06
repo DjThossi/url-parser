@@ -16,7 +16,15 @@ class UrlParser
         }
 
         $scheme = isset($parsedUrl['scheme']) ? (string)$parsedUrl['scheme'] : null;
+        if ($scheme === null) {
+            throw new UrlParserException('Scheme is currently not allowed to be empty');
+        }
+
         $host = isset($parsedUrl['host']) ? (string)$parsedUrl['host'] : null;
+        if ($host === null) {
+            throw new UrlParserException('Host is not allowed to be empty');
+        }
+
         $port = isset($parsedUrl['port']) ? (string)$parsedUrl['port'] : null;
         $path = isset($parsedUrl['path']) ? (string)$parsedUrl['path'] : null;
         $query = isset($parsedUrl['query']) ? (string)$parsedUrl['query'] : null;

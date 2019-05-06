@@ -23,13 +23,13 @@ class UrlParserWorksTest extends TestCase
     public function workingUrlsProvider(): array
     {
         return [
-            'https://www.smest.it' => ['https://www.smest.it'],
-            'http://www.smest.it' => ['http://www.smest.it'],
-            'http://user:password@www.smest.it' => ['http://user:password@www.smest.it'],
-            'http://user:password@www.smest.it:80' => ['http://user:password@www.smest.it:80'],
-            'http://user:password@www.smest.it:80/test.php' => ['http://user:password@www.smest.it:80/test.php'],
-            'http://user:password@www.smest.it:80/test.php?hello=world' => ['http://user:password@www.smest.it:80/test.php?hello=world'],
-            'http://user:password@www.smest.it:80/test.php?hello=world#anker' => ['http://user:password@www.smest.it:80/test.php?hello=world#anker'],
+            'https://www.sebastianthoss.de' => ['https://www.sebastianthoss.de'],
+            'http://www.sebastianthoss.de' => ['http://www.sebastianthoss.de'],
+            'http://user:password@www.sebastianthoss.de' => ['http://user:password@www.sebastianthoss.de'],
+            'http://user:password@www.sebastianthoss.de:80' => ['http://user:password@www.sebastianthoss.de:80'],
+            'http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/' => ['http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/'],
+            'http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/?hello=world' => ['http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/?hello=world'],
+            'http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/?hello=world#anker' => ['http://user:password@www.sebastianthoss.de:80/en/big-five-for-life/?hello=world#anker'],
         ];
     }
 }
