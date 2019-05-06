@@ -1,0 +1,27 @@
+{
+    "name": "djthossi/url-parser",
+    "description": "A small lean self written URL parser which parsed a given URL into a OOP version",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Thoss",
+            "email": "dj_thossi@web.de",
+            "homepage": "http://www.sebastianthoss.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DjThossi\\": "src/DjThossi",
+            "Acceptance\\": "tests/Acceptance",
+            "Integration\\": "tests/Integration",
+            "Unit\\": "tests/Unit"
+        }
+    },
+    "require": {
+        "php": ">=7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~8.1"
+    }
+}

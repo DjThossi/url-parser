@@ -1,0 +1,10 @@
+version: '3'
+services:
+  cli:
+    build:
+      context: ./docker/cli
+      args:
+        # possible values 'production' or 'development'
+        PHP_ENV_NAME: development
+    volumes:
+      - ./:/var/www/html
