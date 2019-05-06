@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - '7.2'
+  - '7.3'
+  - nightly
+
+cache:
+  directories:
+    - vendor
+
+before_script: composer install
+
+script:
+  - php vendor/bin/phpunit
