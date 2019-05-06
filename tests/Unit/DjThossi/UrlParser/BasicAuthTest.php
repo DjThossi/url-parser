@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \DjThossi\UrlParser\BasicAuth
- * @covers \DjThossi\UrlParser\BasicAuthEnsureException
  */
 class BasicAuthTest extends TestCase
 {
