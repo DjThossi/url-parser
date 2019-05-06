@@ -12,19 +12,13 @@ class UrlParser
     public function parseUrl(string $url): ParsedUrl
     {
         $parsedUrl = parse_url($url);
-        if (!is_array($parsedUrl)) {
-            throw new UrlParserException('Not possible to parse URL');
-        }
+        $this->ensureParsedUrl($parsedUrl);
 
         $scheme = isset($parsedUrl['scheme']) ? (string) $parsedUrl['scheme'] : null;
-        if ($scheme === null) {
-            throw new UrlParserException('Scheme is currently not allowed to be empty');
-        }
+        $this->ensureScheme($scheme);
 
         $host = isset($parsedUrl['host']) ? (string) $parsedUrl['host'] : null;
-        if ($host === null) {
-            throw new UrlParserException('Host is not allowed to be empty');
-        }
+        $this->ensureHost($host);
 
         $port = isset($parsedUrl['port']) ? (string) $parsedUrl['port'] : null;
         $path = isset($parsedUrl['path']) ? (string) $parsedUrl['path'] : null;
@@ -43,6 +37,27 @@ class UrlParser
             return new ParsedUrl($scheme, $basicAuth, $host, $port, $path, $query, $fragment);
         } catch (EnsureSchemeException | EnsureHostException | BasicAuthEnsureException $exception) {
             throw new UrlParserException($exception->getMessage(), 0, $exception);
+        }
+    }
+
+    private function ensureParsedUrl($parsedUrl): void
+    {
+        if (!is_array($parsedUrl)) {
+            throw new UrlParserException('Not possible to parse URL');
+        }
+    }
+
+    private function ensureScheme(?string $scheme): void
+    {
+        if ($scheme === null) {
+            throw new UrlParserException('Scheme is currently not allowed to be empty');
+        }
+    }
+
+    private function ensureHost(?string $host): void
+    {
+        if ($host === null) {
+            throw new UrlParserException('Host is not allowed to be empty');
         }
     }
 }
