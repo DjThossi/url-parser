@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Integration\DjThossi\UrlParser;
 
 use DjThossi\UrlParser\BasicAuth;
 use DjThossi\UrlParser\ParsedUrl;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 class ParsedUrlTest extends TestCase
@@ -18,6 +19,23 @@ class ParsedUrlTest extends TestCase
      * @var ParsedUrl
      */
     private $parsedUrl;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->basicAuth = new BasicAuth('user', 'password');
+
+        $this->parsedUrl = new ParsedUrl(
+            'http',
+            $this->basicAuth,
+            'www.sebastianthoss.de',
+            '80',
+            '/en/big-five-for-live',
+            'hello=world',
+            'anker'
+        );
+    }
 
     public function testCanCreateInstance(): void
     {
@@ -40,22 +58,5 @@ class ParsedUrlTest extends TestCase
     public function testGetBasicAuthWithBasicAuth(): void
     {
         $this->assertSame($this->basicAuth, $this->parsedUrl->getBasicAuth());
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->basicAuth = new BasicAuth('user', 'password');
-
-        $this->parsedUrl = new ParsedUrl(
-            'http',
-            $this->basicAuth,
-            'www.sebastianthoss.de',
-            '80',
-            '/en/big-five-for-live',
-            'hello=world',
-            'anker'
-        );
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace DjThossi\UrlParser;
@@ -88,7 +89,7 @@ class ParsedUrl
 
     public function hasBasicAuth(): bool
     {
-        return ($this->basicAuth !== null);
+        return $this->basicAuth !== null;
     }
 
     public function getBasicAuth(): ?BasicAuth
@@ -116,7 +117,7 @@ class ParsedUrl
      */
     private function ensureScheme(string $scheme): void
     {
-        if (!in_array($scheme, ['http', 'https'])) {
+        if (!in_array($scheme, ['http', 'https'], true)) {
             throw new EnsureSchemeException('only "http", "https" is currently supported');
         }
     }

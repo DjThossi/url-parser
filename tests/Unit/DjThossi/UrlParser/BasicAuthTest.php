@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Unit\DjThossi\UrlParser;
 
 use DjThossi\UrlParser\BasicAuth;
@@ -14,7 +16,7 @@ class BasicAuthTest extends TestCase
     /**
      * @dataProvider validBasicAuthDataProvider
      */
-    public function testCanCreateInstance($user, $password): void
+    public function testCanCreateInstance(string $user, ?string $password): void
     {
         $basicAuth = new BasicAuth($user, $password);
         $this->assertInstanceOf(BasicAuth::class, $basicAuth);

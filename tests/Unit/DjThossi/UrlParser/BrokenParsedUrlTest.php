@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Unit\DjThossi\UrlParser;
 
-use DjThossi\UrlParser\BasicAuth;
 use DjThossi\UrlParser\EnsureHostException;
 use DjThossi\UrlParser\EnsureSchemeException;
 use DjThossi\UrlParser\ParsedUrl;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**

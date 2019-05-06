@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Unit\DjThossi\UrlParser;
 
 use DjThossi\UrlParser\UrlParser;

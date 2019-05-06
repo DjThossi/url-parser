@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace DjThossi\UrlParser;
@@ -15,23 +16,23 @@ class UrlParser
             throw new UrlParserException('Not possible to parse URL');
         }
 
-        $scheme = isset($parsedUrl['scheme']) ? (string)$parsedUrl['scheme'] : null;
+        $scheme = isset($parsedUrl['scheme']) ? (string) $parsedUrl['scheme'] : null;
         if ($scheme === null) {
             throw new UrlParserException('Scheme is currently not allowed to be empty');
         }
 
-        $host = isset($parsedUrl['host']) ? (string)$parsedUrl['host'] : null;
+        $host = isset($parsedUrl['host']) ? (string) $parsedUrl['host'] : null;
         if ($host === null) {
             throw new UrlParserException('Host is not allowed to be empty');
         }
 
-        $port = isset($parsedUrl['port']) ? (string)$parsedUrl['port'] : null;
-        $path = isset($parsedUrl['path']) ? (string)$parsedUrl['path'] : null;
-        $query = isset($parsedUrl['query']) ? (string)$parsedUrl['query'] : null;
-        $fragment = isset($parsedUrl['fragment']) ? (string)$parsedUrl['fragment'] : null;
+        $port = isset($parsedUrl['port']) ? (string) $parsedUrl['port'] : null;
+        $path = isset($parsedUrl['path']) ? (string) $parsedUrl['path'] : null;
+        $query = isset($parsedUrl['query']) ? (string) $parsedUrl['query'] : null;
+        $fragment = isset($parsedUrl['fragment']) ? (string) $parsedUrl['fragment'] : null;
 
-        $user = isset($parsedUrl['user']) ? (string)$parsedUrl['user'] : null;
-        $password = isset($parsedUrl['pass']) ? (string)$parsedUrl['pass'] : null;
+        $user = isset($parsedUrl['user']) ? (string) $parsedUrl['user'] : null;
+        $password = isset($parsedUrl['pass']) ? (string) $parsedUrl['pass'] : null;
 
         try {
             $basicAuth = null;
@@ -40,7 +41,7 @@ class UrlParser
             }
 
             return new ParsedUrl($scheme, $basicAuth, $host, $port, $path, $query, $fragment);
-        } catch (EnsureSchemeException|EnsureHostException|BasicAuthEnsureException $exception) {
+        } catch (EnsureSchemeException | EnsureHostException | BasicAuthEnsureException $exception) {
             throw new UrlParserException($exception->getMessage(), 0, $exception);
         }
     }
