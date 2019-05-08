@@ -97,15 +97,15 @@ class ParsedUrl
         return $this->basicAuth;
     }
 
-    public function getPath(): string
+    public function getPath(bool $addQuery = true, bool $addFragment = true): string
     {
         $query = null;
-        if ($this->query !== null) {
+        if ($addQuery === true && $this->query !== null) {
             $query = '?' . $this->query;
         }
 
         $fragment = null;
-        if ($this->fragment !== null) {
+        if ($addFragment === true && $this->fragment !== null) {
             $fragment = '#' . $this->fragment;
         }
 
