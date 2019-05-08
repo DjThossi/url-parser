@@ -28,7 +28,7 @@ class ParsedUrlGetterTest extends TestCase
             '80',
             '/en/big-five-for-live',
             'hello=world',
-            'anker'
+            'fragment'
         );
     }
 
@@ -59,12 +59,12 @@ class ParsedUrlGetterTest extends TestCase
 
     public function testGetPath(): void
     {
-        $this->assertEquals('/en/big-five-for-live?hello=world#anker', $this->parsedUrl->getPath());
+        $this->assertEquals('/en/big-five-for-live?hello=world#fragment', $this->parsedUrl->getPath());
     }
 
     public function testGetPathWithoutQuery(): void
     {
-        $this->assertEquals('/en/big-five-for-live#anker', $this->parsedUrl->getPath(false));
+        $this->assertEquals('/en/big-five-for-live#fragment', $this->parsedUrl->getPath(false));
     }
 
     public function testGetPathWithoutFragment(): void
