@@ -1,4 +1,4 @@
-FROM php:7.2-cli
+FROM php:7.3-cli
 
 ARG PHP_ENV_NAME
 ENV PHP_ENV_NAME ${PHP_ENV_NAME:-production}

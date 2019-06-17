@@ -47,6 +47,11 @@ class ParsedUrlGetterTest extends TestCase
         $this->assertEquals('http://www.sebastianthoss.de:80', $this->parsedUrl->getDomain(true));
     }
 
+    public function testGetScheme(): void
+    {
+        $this->assertEquals('http', $this->parsedUrl->getScheme());
+    }
+
     public function testHasBasicAuthFalse(): void
     {
         $this->assertFalse($this->parsedUrl->hasBasicAuth());

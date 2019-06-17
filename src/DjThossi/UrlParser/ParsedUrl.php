@@ -97,6 +97,11 @@ class ParsedUrl
         return $this->basicAuth;
     }
 
+    public function getScheme(): string
+    {
+        return $this->scheme;
+    }
+
     public function getPath(bool $addQuery = true, bool $addFragment = true): string
     {
         $query = null;
